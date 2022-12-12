@@ -15,8 +15,8 @@ import java.util.Optional;
 @Service
 @AllArgsConstructor
 public class PostServiceImpl implements PostService {
-    private final PostRepository postRepository;
-    private final UserRepository userRepository;
+    private  PostRepository postRepository;
+    private  UserRepository userRepository;
     @Override
     public PostDto addPost(PostCreationDto postCreationRequest) {
        return Mapper.postToPostDto(postRepository.save(

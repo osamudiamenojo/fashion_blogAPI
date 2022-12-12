@@ -22,5 +22,4 @@ public class UserController {
     public ResponseEntity<UserDto> getUser(@PathVariable Long id){
         return new ResponseEntity<>(userService.getUserById(id),HttpStatus.ACCEPTED);
     }
-
 }

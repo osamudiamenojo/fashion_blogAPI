@@ -17,7 +17,6 @@ public class UserCreationDto {
     @Email
     private String email;
 
-    @NotNull(message="name cannot be null")
     @Size(min=2, max=12, message="password must be between 2 and 12 characters")
     private String password;
     private Role role;
