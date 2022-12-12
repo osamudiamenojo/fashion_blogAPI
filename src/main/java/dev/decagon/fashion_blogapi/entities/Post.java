@@ -1,16 +1,14 @@
 package dev.decagon.fashion_blogapi.entities;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.List;
 
 
 @Getter
 @Setter
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity(name = "Post")
@@ -20,20 +18,21 @@ public class Post extends BaseEntity{
     private String category;
     private String imageUrl;
     private  String description;
-
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
     @OneToMany(
             mappedBy = "post",
             orphanRemoval = true,
             fetch = FetchType.LAZY
     )
-    private List<Comment>  comment;
-
+    private List<Comment>  comments;
     @OneToMany(
             mappedBy = "post",
             orphanRemoval = true,
             fetch = FetchType.LAZY
     )
-    private List<Like> likes;
+    private List<PostLike> postLikes;
 
 
 }

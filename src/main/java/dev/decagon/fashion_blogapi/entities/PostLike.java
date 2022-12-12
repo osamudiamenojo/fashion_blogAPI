@@ -6,7 +6,7 @@ import lombok.Data;
 @Entity(name = "Likes")
 @Table(name = "likes")
 @Data
-public class Like extends BaseEntity{
+public class PostLike extends BaseEntity{
     @ManyToOne(targetEntity = Post.class)
     @JoinColumn(
             name = "post_id",
@@ -16,6 +16,7 @@ public class Like extends BaseEntity{
             )
     )
     private Post post;
-
-    private Long userId;
+    @JoinColumn(name = "user_id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    private User user;
 }

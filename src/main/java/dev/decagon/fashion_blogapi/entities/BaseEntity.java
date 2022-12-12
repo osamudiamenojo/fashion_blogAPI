@@ -24,7 +24,6 @@ public class BaseEntity {
     @CreatedDate
     @Column(name = "created_at", nullable = false, updatable = false)
     private Timestamp createdAt;
-
     @LastModifiedDate
     @Column(name = "updated_at")
     private Timestamp updatedAt;

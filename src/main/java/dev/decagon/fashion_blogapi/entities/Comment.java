@@ -1,13 +1,11 @@
 package dev.decagon.fashion_blogapi.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.List;
-
+@Builder
 @Getter
 @Setter
 @AllArgsConstructor
@@ -35,6 +33,9 @@ public class Comment extends BaseEntity{
             )
     )
     private User user;
+    @JsonIgnore
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "comment", cascade = CascadeType.ALL)
+    private List<CommentLike> commentLikes;
 
 
 }

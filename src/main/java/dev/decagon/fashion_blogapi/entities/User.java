@@ -1,19 +1,44 @@
 package dev.decagon.fashion_blogapi.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import dev.decagon.fashion_blogapi.enums.Role;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
+
+import java.util.List;
 
 @Entity(name = "Users")
 @Table(name = "users")
-@Getter
-@Setter
-@ToString
+@Data
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 public class User extends BaseEntity{
     private String name;
     private String email;
+    private String password;
+    @Column(nullable = false)
+    @Enumerated(value=EnumType.STRING)
     private Role role;
+    @OneToMany(
+            mappedBy = "user",
+            orphanRemoval = true,
+            fetch = FetchType.LAZY
+    )
+    private List<Post> posts;
+    @JsonIgnore
+    @OneToMany(
+            mappedBy = "user",
+            orphanRemoval = true,
+            fetch = FetchType.LAZY
+    )
+    private List<Comment> comments;
+
+    @JsonIgnore
+    @OneToMany(
+            mappedBy = "user",
+            orphanRemoval = true,
+            fetch = FetchType.LAZY
+    )
+    private List<PostLike> postLikes;
 }
