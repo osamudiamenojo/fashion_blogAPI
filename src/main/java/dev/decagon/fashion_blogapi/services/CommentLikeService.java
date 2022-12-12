@@ -9,10 +9,12 @@ import java.util.List;
 public interface CommentLikeService {
     CommentLike getByCommentAndUser(Comment comment, User user);
 
-    void addCommentLike(CommentLike commentLike);
+    void addCommentLike(Long userId, Long commentId);
 
-    void deleteCommentLike(CommentLike like);
+    void deleteCommentLike(Long likeId);
 
 
     List<CommentLike> getAllCommentLikesByComment(Comment comment);
+
+
 }
