@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @AllArgsConstructor
-@RequestMapping("api/v1/posts")
+@RequestMapping("api/v1/comments")
 public class PostController {
 
 }
