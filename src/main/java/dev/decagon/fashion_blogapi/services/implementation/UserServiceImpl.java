@@ -3,6 +3,7 @@ package dev.decagon.fashion_blogapi.services.implementation;
 import dev.decagon.fashion_blogapi.dtos.UserCreationDto;
 import dev.decagon.fashion_blogapi.dtos.UserDto;
 import dev.decagon.fashion_blogapi.entities.User;
+import dev.decagon.fashion_blogapi.exceptions.EntityNotFoundException;
 import dev.decagon.fashion_blogapi.repositories.UserRepository;
 import dev.decagon.fashion_blogapi.services.UserService;
 import dev.decagon.fashion_blogapi.util.Mapper;
@@ -10,7 +11,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
+
 @Service
 @AllArgsConstructor
 public class UserServiceImpl implements UserService {
@@ -40,8 +41,9 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Optional<User> getUserById(Long id) {
-
-        return userRepository.findById(id);
+    public UserDto getUserById(Long id) {
+return Mapper.userToUserDto(userRepository.findById(id).orElseThrow(
+        ()-> new EntityNotFoundException("User Not Found")
+));
     }
 }
