@@ -10,9 +10,9 @@ public interface PostLikeService {
 
     PostLike getByPostAndUser(Post post, User user);
 
-    void addPostLike(PostLike postLike);
+    void addPostLike(Long userId, Long postId);
 
-    void deletePostLike(PostLike like);
+    void deletePostLike(Long postLikeId);
 
 
     List<PostLike> getAllPostLikeByPost(Post post);

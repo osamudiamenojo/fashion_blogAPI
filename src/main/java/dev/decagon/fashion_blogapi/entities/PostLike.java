@@ -1,11 +1,14 @@
 package dev.decagon.fashion_blogapi.entities;
 
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
 
 @Entity(name = "Likes")
 @Table(name = "likes")
 @Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class PostLike extends BaseEntity{
     @ManyToOne(targetEntity = Post.class)
     @JoinColumn(

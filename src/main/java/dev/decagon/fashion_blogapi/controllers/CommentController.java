@@ -4,8 +4,6 @@ import dev.decagon.fashion_blogapi.dtos.CommentCreationDto;
 import dev.decagon.fashion_blogapi.dtos.CommentDto;
 import dev.decagon.fashion_blogapi.services.CommentLikeService;
 import dev.decagon.fashion_blogapi.services.CommentService;
-import dev.decagon.fashion_blogapi.services.PostService;
-import dev.decagon.fashion_blogapi.services.UserService;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -18,8 +16,7 @@ import org.springframework.web.bind.annotation.*;
 public class CommentController {
     private final CommentService commentService;
     private final CommentLikeService commentLikeService;
-    private PostService postService;
-    private UserService userService;
+
     @PostMapping("/make-comment")
     public ResponseEntity<CommentDto> create(@Valid @RequestBody CommentCreationDto commentCreationDto){
         return new ResponseEntity<>(commentService.addComment(commentCreationDto), HttpStatus.CREATED);
