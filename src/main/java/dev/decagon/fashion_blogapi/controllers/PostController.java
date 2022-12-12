@@ -1,7 +1,5 @@
 package dev.decagon.fashion_blogapi.controllers;
 
-import dev.decagon.fashion_blogapi.dtos.CommentCreationDto;
-import dev.decagon.fashion_blogapi.dtos.CommentDto;
 import dev.decagon.fashion_blogapi.dtos.PostCreationDto;
 import dev.decagon.fashion_blogapi.dtos.PostDto;
 import dev.decagon.fashion_blogapi.services.PostService;
@@ -20,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class PostController {
     private PostService postService;
 
-    @PostMapping("/make-comment")
+    @PostMapping("/make-post")
     public ResponseEntity<PostDto> createPost(@Valid @RequestBody PostCreationDto postCreationDto){
         return new ResponseEntity<>(postService.addPost(postCreationDto), HttpStatus.CREATED);
     }
