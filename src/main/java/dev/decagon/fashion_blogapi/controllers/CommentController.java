@@ -37,7 +37,5 @@ public class CommentController {
         commentLikeService.deleteCommentLike(commentLikeId);
 
     }
-//    @PostMapping("/like-comment")
-//    public void likeAComment()
 
 }
