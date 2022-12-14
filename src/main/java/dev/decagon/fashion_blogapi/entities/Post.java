@@ -18,11 +18,12 @@ public class Post extends BaseEntity{
     private String category;
     private String imageUrl;
     private  String description;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private User user;
     @OneToMany(
             mappedBy = "post",
+            cascade = CascadeType.ALL,
             orphanRemoval = true,
             fetch = FetchType.LAZY
     )

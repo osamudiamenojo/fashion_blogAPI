@@ -1,6 +1,5 @@
 package dev.decagon.fashion_blogapi.services.implementation;
 
-import dev.decagon.fashion_blogapi.entities.CommentLike;
 import dev.decagon.fashion_blogapi.entities.Post;
 import dev.decagon.fashion_blogapi.entities.PostLike;
 import dev.decagon.fashion_blogapi.entities.User;

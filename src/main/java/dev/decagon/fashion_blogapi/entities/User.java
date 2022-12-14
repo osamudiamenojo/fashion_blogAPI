@@ -26,15 +26,13 @@ public class User extends BaseEntity{
             fetch = FetchType.LAZY
     )
     private List<Post> posts;
-    @JsonIgnore
     @OneToMany(
             mappedBy = "user",
             orphanRemoval = true,
             fetch = FetchType.LAZY
     )
+    
     private List<Comment> comments;
-
-    @JsonIgnore
     @OneToMany(
             mappedBy = "user",
             orphanRemoval = true,

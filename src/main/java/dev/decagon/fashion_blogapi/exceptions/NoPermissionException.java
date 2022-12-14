@@ -7,6 +7,6 @@ public class NoPermissionException extends RuntimeException{
         this.message=message;
     }
     public NoPermissionException() {
-        super("Not found");
+        super("No Authorization");
     }
 }

@@ -5,7 +5,6 @@ import dev.decagon.fashion_blogapi.dtos.CommentDto;
 import dev.decagon.fashion_blogapi.entities.Comment;
 import dev.decagon.fashion_blogapi.exceptions.EntityNotFoundException;
 import dev.decagon.fashion_blogapi.repositories.CommentRepository;
-import dev.decagon.fashion_blogapi.repositories.PostRepository;
 import dev.decagon.fashion_blogapi.repositories.UserRepository;
 import dev.decagon.fashion_blogapi.services.CommentService;
 import dev.decagon.fashion_blogapi.services.PostService;

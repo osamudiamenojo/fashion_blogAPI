@@ -15,7 +15,7 @@ import java.util.List;
 public class Comment extends BaseEntity{
     private String commentBody;
 
-    @ManyToOne(targetEntity = Post.class)
+    @ManyToOne(targetEntity = Post.class, fetch = FetchType.LAZY)
     @JoinColumn(
             name = "post_id",
             referencedColumnName = "id",
@@ -24,7 +24,7 @@ public class Comment extends BaseEntity{
             )
     )
     private Post post;
-    @ManyToOne(targetEntity = Post.class)
+    @ManyToOne(targetEntity = User.class)
     @JoinColumn(
             name = "user_id",
             referencedColumnName = "id",
